@@ -1,0 +1,262 @@
+/* ============ DENIM PALETTE (change these to re-colour the site) ============ */
+:root {
+  --denim-dark: #1e3354;
+  --denim: #2b4c7e;
+  --wash: #c7d8ee;
+  --card: #eef4fb;
+  --thread: #f5b942;
+  --ink: #14213d;
+  --tint: rgba(43, 76, 126, 0.1);
+
+  /* Weave texture for dark surfaces (header, footer, tags) */
+  --weave:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.07) 0, rgba(255, 255, 255, 0.07) 1px, transparent 1px, transparent 4px),
+    repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.12) 0, rgba(0, 0, 0, 0.12) 1px, transparent 1px, transparent 4px);
+
+  /* Weave texture for light surfaces (page background, cards) */
+  --weave-soft:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.35) 0, rgba(255, 255, 255, 0.35) 1px, transparent 1px, transparent 4px),
+    repeating-linear-gradient(-45deg, var(--tint) 0, var(--tint) 1px, transparent 1px, transparent 4px);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  line-height: 1.7;
+  color: var(--ink);
+  background-color: var(--wash);
+  background-image: var(--weave-soft);
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+/* ---------- Header ---------- */
+header {
+  background-color: var(--denim);
+  background-image: var(--weave), linear-gradient(180deg, var(--denim), var(--denim-dark));
+  color: white;
+  text-align: center;
+  padding: 90px 20px 40px;
+  border-bottom: 4px dashed var(--thread);
+  outline: 2px dashed var(--thread);
+  outline-offset: -14px;
+}
+
+header h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+.accent {
+  color: var(--thread);
+}
+
+header p {
+  font-size: 1.2rem;
+  margin: 12px 0 28px;
+  opacity: 0.92;
+}
+
+.button {
+  display: inline-block;
+  background-color: var(--thread);
+  color: var(--denim-dark);
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+}
+
+nav {
+  margin-top: 40px;
+}
+
+nav a {
+  color: white;
+  margin: 0 14px;
+  text-decoration: none;
+  font-weight: 600;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+
+nav a:hover {
+  border-bottom-color: var(--thread);
+}
+
+/* ---------- Sections ---------- */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+section {
+  padding: 40px 0;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: var(--denim-dark);
+  margin-bottom: 20px;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  margin-top: 8px;
+  border-top: 3px dashed var(--thread);
+}
+
+/* ---------- About: denim patches with stitching ---------- */
+.now-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.now-list li {
+  background-color: var(--card);
+  background-image: var(--weave-soft);
+  padding: 16px 18px;
+  border: 2px dashed var(--thread);
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* ---------- Projects: a jeans pocket with rivets ---------- */
+article {
+  position: relative;
+  background-color: var(--card);
+  background-image: var(--weave-soft);
+  padding: 28px 24px 24px;
+  border: 2px dashed var(--thread);
+  border-radius: 6px 6px 40px 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+article::before,
+article::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ffe9a8, var(--thread) 60%, #b07d12);
+}
+
+article::before {
+  left: 10px;
+}
+
+article::after {
+  right: 10px;
+}
+
+article h3 {
+  color: var(--denim-dark);
+  margin-bottom: 8px;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.tags span {
+  background-color: var(--denim);
+  background-image: var(--weave);
+  color: white;
+  padding: 2px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ---------- Skills: sewn-on patches ---------- */
+.skills-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skills-list li {
+  background-color: var(--denim);
+  background-image: var(--weave);
+  color: white;
+  padding: 8px 18px;
+  border: 2px dashed var(--thread);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: transform 0.2s;
+}
+
+.skills-list li:hover {
+  transform: scale(1.08) rotate(-2deg);
+}
+
+/* ---------- Contact link ---------- */
+#contact a {
+  color: var(--denim-dark);
+  font-weight: 700;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background-color: var(--denim-dark);
+  background-image: var(--weave);
+  color: #dbe6f5;
+  text-align: center;
+  padding: 24px;
+  margin-top: 40px;
+  border-top: 4px dashed var(--thread);
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 600px) {
+  header {
+    padding: 60px 15px 30px;
+  }
+
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 6px 10px;
+  }
+
+  main {
+    padding: 10px 15px;
+  }
+}
